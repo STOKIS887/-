@@ -8,30 +8,33 @@
 </head>
 <body>
 
+    <!-- Анимация опускающегося лифта -->
     <div class="elevator-animation">
         <div class="elevator-shaft">
             <div class="elevator-cabin"></div>
         </div>
     </div>
 
+    <!-- Шапка сайта -->
     <header class="header">
-        <div class="container">
+        <div class="container header-flex">
             <div class="logo">МИНВОДЫ<span>ЛИФТ</span></div>
             <nav class="nav">
                 <a href="#about">О нас</a>
                 <a href="#services">Услуги</a>
-                <a href="#projects">Проекты</a>
                 <a href="#" id="contactsBtn" class="nav-contacts">Контакты</a>
             </nav>
         </div>
     </header>
 
+    <!-- Модальное окно контактов и реквизитов -->
     <div id="contactsModal" class="modal">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
             
             <h2 class="modal-title">Контакты и реквизиты</h2>
             
+            <!-- Блок с контактами и ФИО -->
             <div class="modal-people">
                 <div class="person-card">
                     <strong>Иванов Сергей Николаевич</strong>
@@ -39,7 +42,7 @@
                     <span class="phone">+7 (928) 333-44-55</span>
                 </div>
                 <div class="person-card">
-                    <strong>Петрова Елена Владимировна</strong>
+                    <strong>Petrova Елена Владимировна</strong>
                     <span class="position">Главный инженер</span>
                     <span class="phone">+7 (928) 555-77-88</span>
                 </div>
@@ -47,14 +50,15 @@
 
             <hr class="modal-divider">
 
+            <!-- Блок с официальной информацией -->
             <div class="modal-info-grid">
                 <div class="info-section">
                     <h3>Общие сведения</h3>
-                    <p><strong>Организационно-правовая форма:</strong> Общества с ограниченной ответственностью</p>
+                    <p><strong>ОПФ:</strong> Общество с ограниченной ответственностью</p>
                     <p><strong>Дата регистрации:</strong> 9 ноября 2010 года</p>
-                    <p><strong>Юридический адрес:</strong> 357212, Ставропольский край, Минераловодский район, г. Минеральные Воды, ул. 50 Лет Октября, д. 67, кв. 510</p>
+                    <p><strong>Адрес:</strong> 357212, Ставропольский край, Минераловодский район, г. Минеральные Воды, ул. 50 Лет Октября, д. 67, кв. 510</p>
                     <p><strong>Уставный капитал:</strong> 92 500 руб.</p>
-                    <p><strong>Вид деятельности:</strong> Производство прочих строительно-монтажных работ (43.29) + еще 4 вида деятельности</p>
+                    <p><strong>Вид деятельности:</strong> Производство прочих строительно-монтажных работ (43.29) + еще 4 вида</p>
                     <p><strong>Налоговый режим:</strong> УСН</p>
                 </div>
 
@@ -69,7 +73,7 @@
             </div>
 
             <div class="modal-finance">
-                <h3>Финансовая отчетность и налоги (за 2025 год)</h3>
+                <h3>Финансовая отчетность и налоги (2025)</h3>
                 <div class="finance-grid">
                     <div class="fin-item">Выручка: <span>68,4 млн руб. (+7%)</span></div>
                     <div class="fin-item">Чистая прибыль: <span>9,7 млн руб. (-32%)</span></div>
@@ -79,13 +83,14 @@
                 </div>
                 <div class="taxes-box">
                     <p><strong>Уплачены налоги:</strong> 577,6 тыс. руб. (-75%)</p>
-                    <p><strong>Уплачены страховые взносы:</strong> 8,1 млн руб. (+38%)</p>
+                    <p><strong>Страховые взносы:</strong> 8,1 млн руб. (+38%)</p>
                 </div>
             </div>
 
         </div>
     </div>
 
+    <!-- Главный экран -->
     <section class="hero">
         <div class="container">
             <h1 class="hero-title">Проектирование и обслуживание лифтовых систем</h1>
@@ -94,6 +99,7 @@
         </div>
     </section>
 
+    <!-- Секция "О компании" -->
     <section id="about" class="section bg-light">
         <div class="container">
             <h2 class="section-title">О предприятии</h2>
@@ -103,6 +109,7 @@
         </div>
     </section>
 
+    <!-- Секция "Услуги" -->
     <section id="services" class="section">
         <div class="container">
             <h2 class="section-title">Наши направления</h2>
@@ -123,6 +130,7 @@
         </div>
     </section>
 
+    <!-- Подвал -->
     <footer class="footer">
         <div class="container">
             <p>&copy; 2026 МИНВОДЫЛИФТ. Все права защищены.</p>
@@ -135,20 +143,17 @@
         const btn = document.getElementById("contactsBtn");
         const span = document.getElementsByClassName("close-modal")[0];
 
-        // Открыть окно при клике
         btn.onclick = function(e) {
-            e.preventDefault(); // Отменяем переход по ссылке
+            e.preventDefault();
             modal.style.display = "block";
-            document.body.style.overflow = "hidden"; // Запрещаем прокрутку сайта под окном
+            document.body.style.overflow = "hidden"; 
         }
 
-        // Закрыть окно при клике на крестик
         span.onclick = function() {
             modal.style.display = "none";
             document.body.style.overflow = "auto";
         }
 
-        // Закрыть окно при клике в любое место вне окна
         window.onclick = function(event) {
             if (event.target == modal) {
                 modal.style.display = "none";
