@@ -1,0 +1,343 @@
+/* --- Сброс стилей и базовые настройки --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #f5f5f5;
+    color: #333333;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- Стартовая анимация лифта --- */
+.elevator-animation {
+    position: fixed;
+    top: 0;
+    left: 10%;
+    width: 2px;
+    height: 100vh;
+    background-color: #e0e0e0;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+.elevator-cabin {
+    position: absolute;
+    top: -60px;
+    left: -9px;
+    width: 20px;
+    height: 30px;
+    background-color: #4a4a4a;
+    border-radius: 2px;
+    animation: dropElevator 2.5s cubic-bezier(0.25, 1, 0.5, 1) 0.2s forwards;
+}
+
+@keyframes dropElevator {
+    0% { top: -60px; opacity: 1; }
+    70% { top: 250px; height: 30px; opacity: 1; }
+    100% { top: 100vh; opacity: 0; }
+}
+
+/* --- Шапка сайта --- */
+.header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e5e5e5;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    color: #2b2b2b;
+}
+
+.logo span {
+    color: #7a7a7a;
+    font-weight: 300;
+}
+
+.nav a {
+    color: #555555;
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav a:hover {
+    color: #000000;
+}
+
+/* --- Модальное (всплывающее) окно --- */
+.modal {
+    display: none; /* Изначально скрыто */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5); /* Затемнение фона */
+    backdrop-filter: blur(2px);
+}
+
+.modal-content {
+    background-color: #ffffff;
+    margin: 5% auto;
+    padding: 35px;
+    border: 1px solid #dcdcdc;
+    width: 90%;
+    max-width: 750px;
+    border-radius: 4px;
+    position: relative;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.close-modal {
+    color: #aaa;
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.close-modal:hover {
+    color: #333;
+}
+
+.modal-title {
+    font-size: 1.5rem;
+    color: #222;
+    margin-bottom: 25px;
+    font-weight: 500;
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
+}
+
+/* Блок сотрудников */
+.modal-people {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.person-card {
+    flex: 1;
+    min-width: 240px;
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-left: 3px solid #7a7a7a;
+}
+
+.person-card strong {
+    display: block;
+    color: #333;
+    font-size: 1rem;
+}
+
+.person-card .position {
+    display: block;
+    font-size: 0.85rem;
+    color: #777;
+    margin-bottom: 5px;
+}
+
+.person-card .phone {
+    font-size: 0.9rem;
+    color: #222;
+    font-weight: 500;
+}
+
+.modal-divider {
+    border: 0;
+    height: 1px;
+    background: #e5e5e5;
+    margin: 20px 0;
+}
+
+/* Сетка реквизитов */
+.modal-info-grid {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
+}
+
+.info-section {
+    flex: 1;
+    min-width: 280px;
+}
+
+.info-section h3, .modal-finance h3 {
+    font-size: 1.1rem;
+    color: #444;
+    margin-bottom: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.info-section p {
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+.info-section strong {
+    color: #222;
+}
+
+.text-muted {
+    color: #888;
+    font-size: 0.8rem;
+}
+
+/* Блок финансов */
+.finance-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.fin-item {
+    background: #f1f1f1;
+    padding: 10px;
+    font-size: 0.85rem;
+    color: #444;
+}
+
+.fin-item span {
+    display: block;
+    font-weight: 600;
+    color: #111;
+    margin-top: 2px;
+}
+
+.taxes-box {
+    background: #eaeaea;
+    padding: 12px;
+    font-size: 0.9rem;
+}
+
+/* --- Главный экран --- */
+.hero {
+    padding: 120px 0;
+    background: linear-gradient(180deg, #ffffff 0%, #ececec 100%);
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+}
+
+.hero-title {
+    font-size: 2.5rem;
+    color: #222222;
+    font-weight: 400;
+    margin-bottom: 20px;
+    max-width: 700px;
+}
+
+.hero-subtitle {
+    font-size: 1.1rem;
+    color: #666666;
+    margin-bottom: 35px;
+    max-width: 600px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #333333;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover { background-color: #555555; }
+
+/* --- Общие стили секций --- */
+.section { padding: 80px 0; }
+.bg-light { background-color: #eaeaea; }
+
+.section-title {
+    font-size: 1.8rem;
+    color: #222222;
+    margin-bottom: 30px;
+    font-weight: 400;
+}
+
+.section-text {
+    color: #555555;
+    max-width: 800px;
+    font-size: 1.05rem;
+}
+
+/* --- Сетка (Услуги) --- */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.card {
+    background: #ffffff;
+    padding: 30px;
+    border-left: 3px solid #7a7a7a;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: #222222;
+    font-weight: 500;
+}
+
+.card p { color: #666666; font-size: 0.95rem; }
+
+/* --- Подвал --- */
+.footer {
+    background-color: #222222;
+    color: #888888;
+    padding: 40px 0;
+    text-align: center;
+    font-size: 0.85rem;
+}
